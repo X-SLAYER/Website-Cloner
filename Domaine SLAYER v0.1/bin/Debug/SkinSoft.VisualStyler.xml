@@ -1,0 +1,870 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkinSoft.VisualStyler</name>
+    </assembly>
+    <members>
+        <member name="T:SkinSoft.VisualStyler.TargetControls">
+            <summary>
+            Specifies what forms and controls are skinned
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.TargetControls.None">
+            <summary>
+            Skin no forms or controls
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.TargetControls.Forms">
+            <summary>
+            Skin only forms
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.TargetControls.Controls">
+            <summary>
+            Skin only controls
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.TargetControls.FormsAndControls">
+            <summary>
+            Skin forms and controls
+            </summary>
+        </member>
+        <member name="T:SkinSoft.VisualStyler.SkinMode">
+            <summary>
+            Specifies how the application is skinned.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.SkinMode.Manual">
+            <summary>
+            The application is skinned manually by calling the <see cref="M:SkinSoft.VisualStyler.VisualStyler.ApplySkin"/>
+            and <see cref="M:SkinSoft.VisualStyler.VisualStyler.RemoveSkin"/> methods for each form or control.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.SkinMode.Automatic">
+            <summary>
+            All application forms and controls are automatically skinned.
+            </summary>
+        </member>
+        <member name="T:SkinSoft.VisualStyler.ToolStripRenderStyle">
+            <summary>
+            Specifies how ToolStrip controls are rendered.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.System">
+            <summary>
+            ToolStrips are drawn using skinned elements,  
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.Professional">
+            <summary>
+            ToolStrips are drawn using professional skinned colors.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.Mixed">
+            <summary>
+            ToolStrips are drawn with a mix of system and professional styles.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeBlue">
+            <summary>
+            ToolStrips are drawn using professional Office XP Blue colors.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeOlive">
+            <summary>
+            ToolStrips are drawn using professional Office XP Olive colors.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeSilver">
+            <summary>
+            ToolStrips are drawn using professional Office XP Silver colors.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeRoyale">
+            <summary>
+            ToolStrips are drawn using professional Office XP Royale colors.
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeAuto">
+            <summary>
+            ToolStrips are drawn using the Office XP color scheme that matches the current XP skin.
+            </summary>
+        </member>
+        <member name="T:SkinSoft.VisualStyler.ShadowStyle">
+            <summary>
+            Specifies a shadow style applied to forms
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ShadowStyle.None">
+            <summary>
+            Specifies no shadow
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ShadowStyle.Small">
+            <summary>
+            Specifies a small shadow
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ShadowStyle.Medium">
+            <summary>
+            Specifies a medium shadow
+            </summary>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.ShadowStyle.Bold">
+            <summary>
+            Specifies a bold shadow
+            </summary>
+        </member>
+        <member name="T:SkinSoft.VisualStyler.VisualStyler">
+            <summary>
+            	<para>
+            The VisualStyler component enables developers to completely skin windows forms applications using
+            any Microsoft Visual Style. Your application forms and controls are automatically skinned on both 32-bit
+            and 64-bit platforms from Windows 2000 to Windows 7. The component has comprehensive Visual Studio
+            design-time integration and the built-in smart tag designers enable you to browse, preview and import any
+            number of visual styles without having writing a single of code.
+              </para>
+              <para>
+            In order to skin your application you only need to drop this component onto the main form or first visible form
+            of your application. Using the properties available on the VisualStyler component, you can determine which Visual
+            Style to use, what forms and controls should be skinned and whether to apply translucent shadows to your forms.
+              </para>
+              <para>
+            At design-time the <see cref="P:SkinSoft.VisualStyler.VisualStyler.VisualStyle"/> property selects the visual style, this is automatically
+            imported and then embedded into your application as a resource.
+            Use the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> property to determine what forms or controls you wish to
+            have the skin applied.
+              </para>
+              <para>
+            The default <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> automatically skins all application forms and controls, you can further
+            customize this behavior by setting the form or controls <see cref="P:System.Windows.Forms.Control.Tag"/> property to either the
+              <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalExcludeTag"/> to unskin the control or the <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalIncludeTag"/> to
+            always skin the form or control.
+              </para>
+              <para>
+            Use the <see cref="P:SkinSoft.VisualStyler.VisualStyler.ShadowStyle"/> property to set the visibility and appearance of all form shadows.
+            Use the <see cref="P:SkinSoft.VisualStyler.VisualStyler.ToolStripStyle"/> property to select the appearance of all application <see cref="T:System.Windows.Forms.ToolStrip"/> controls.
+              </para>
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:SkinSoft.VisualStyler.VisualStyler.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.#ctor">
+            <summary>
+            Initializes a new instance of the VisualStyler component with the default
+            arguments
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of the VisualStyler component using the specified
+            <see cref="T:System.ComponentModel.IContainer"/>.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.Dispose(System.Boolean)">
+            <summary> 
+            Disposes any resources used by the VisualStyler component
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.BeginInit">
+            
+            <summary>
+            Begins the designer initialize action
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.EndInit">
+            
+            <summary>
+            Ends the designer initialize action
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ShouldSerializeLicense">
+            <summary>
+            Determines if the component license should be serialized
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.Shutdown">
+            <summary>
+            Manually shuts down the skin engine and disposes all resources.
+            </summary>
+            <remarks>
+            If your user interface is not hosted by a Windows Forms environment, such as a Word Add-in,
+            Office Add-in, COM library etc, then you will need to call this method when the main form of 
+            your GUI is closed.
+            </remarks>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplySkin">
+            <summary>
+            This method is now obsolete, please use <see cref="M:SkinSoft.VisualStyler.VisualStyler.RestoreApplicationSkin"/> instead.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RemoveSkin">
+            <summary>
+            This method is now obsolete, please use RemoveApplicationSkin instead.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.PaintBackground(System.Windows.Forms.Control,System.Windows.Forms.Control)">
+            <summary>
+            Paints the background of the specified control using the specified parent control
+            </summary>
+            <remarks>
+            This method can be called anywhere in your application.
+            </remarks>
+            <param name="control"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.EnableCustomBackgroundPaint(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Enables custom background painting for the specified control.
+            </summary>
+            <remarks>
+            This method can be called anywhere in your application.
+            </remarks>
+            <param name="control"></param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.EnableCustomPaint(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Enables custom painting for the specified control.
+            </summary>
+            <remarks>
+            This method can be called anywhere in your application.
+            </remarks>
+            <param name="control"></param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RemoveApplicationSkin">
+            <summary>
+            Manually removes the entire application skin including form shadows, restoring the
+            application GUI to a non-skinned appearance.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You can restore the skin at anytime by calling the <see cref="M:SkinSoft.VisualStyler.VisualStyler.RestoreApplicationSkin"/>
+            method.
+            </remarks>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RemoveApplicationSkin(System.Boolean)">
+            <summary>
+            Manually removes the entire application skin including form shadows, restoring the
+            application GUI to a non-skinned appearance.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            If allowRestore is False then the application skin will be completely removed and all
+            skin resources disposed.
+            method.
+            </remarks>
+            <param name="allowRestore"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RestoreApplicationSkin">
+            <summary>
+            Manually restores the entire application skin including all form shadows.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You would typically call this method after a previous call to <see cref="M:SkinSoft.VisualStyler.VisualStyler.RemoveApplicationSkin"/>
+            to restore the application skin. The skin is restored according to the current <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/>
+            setting and any Tagged exclusions or inclusions.
+            </remarks>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplyIncludeTag(System.Windows.Forms.Form)">
+            <summary>
+            Helper method, manually applies the <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalIncludeTag"/> to the specified form and all child controls.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            When using the <see cref="F:SkinSoft.VisualStyler.SkinMode.Automatic"/> skin mode, any form or control whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> property matches the <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalIncludeTag"/> 
+            is always skinned regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </remarks>
+            <param name="form">The target Form</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplyIncludeTag(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Helper method, manually applies the GlobalIncludeTag to the specified child and optional child controls
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            When using the <see cref="F:SkinSoft.VisualStyler.SkinMode.Automatic"/> skin mode, any form or control whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> property matches the <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalIncludeTag"/> 
+            is always skinned regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </remarks>
+            <param name="control">The target control</param>
+            <param name="childControls">Include child controls option</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplyExcludeTag(System.Windows.Forms.Form)">
+            <summary>
+            Helper method, manually applies the GlobalExcludeTag to the specified form and all child controls.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            When using the <see cref="F:SkinSoft.VisualStyler.SkinMode.Automatic"/> skin mode, any form or control whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> property matches the <see cref="P:SkinSoft.VisualStyler.VisualStyler.GlobalExcludeTag"/> 
+            is never skinned regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </remarks>
+            <param name="form">The target Form</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplyExcludeTag(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Helper method, manually applies the GlobalExcludeTag to the specified child and optional child controls
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            When using the <see cref="F:SkinSoft.VisualStyler.SkinMode.Automatic"/> skin mode, any form or control whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> property matches the GlobalExcludeTag is always skinned 
+            regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </remarks>
+            <param name="control">The target control</param>
+            <param name="childControls">Include child controls option</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplySkin(System.Windows.Forms.Form)">
+            <summary>
+            Manually applies the skin to the specified form and all child controls.
+            This method always applies the skin to the specified form regardless of the current
+            <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> setting.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You would typically use this method to manually apply the skin to forms, or 
+            when the <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> is set to <see cref="F:SkinSoft.VisualStyler.SkinMode.Manual"/>.
+            </remarks>
+            <param name="form">The target Form</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplySkin(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Manually applies the skin to the specified control and optional child controls.
+            This method always applies the skin to the specified control regardless of the current
+            <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> setting.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You would typically use this method to manually apply the skin to controls, or
+            when the <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> is set to <see cref="F:SkinSoft.VisualStyler.SkinMode.Manual"/>.
+            </remarks>
+            <param name="control">The target Control</param>
+            <param name="childControls">If true, then all child controls are affected; if false then just the control is affected.</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RemoveSkin(System.Windows.Forms.Form)">
+            <summary>
+            Manually removes the skin from the specified form. 
+            This method always removes the the skin from the specified form regardless of 
+            the current <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> setting.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You would typically use this method to manually remove the skin from a form, or
+            when the <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> is set to <see cref="F:SkinSoft.VisualStyler.SkinMode.Manual"/>.
+            </remarks>
+            <param name="form">The target form.</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RemoveSkin(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Manually removes the skin from the specified control and optional child controls.
+            This method always removes the the skin from the specified control regardless of 
+            the current <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> setting.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            You would typically use this method to manually remove the skin from a control, or
+            when the <see cref="P:SkinSoft.VisualStyler.VisualStyler.SkinMode"/> is set to <see cref="F:SkinSoft.VisualStyler.SkinMode.Manual"/>.
+            </remarks>
+            <param name="control">The target Control</param>
+            <param name="childControls">If true, then all child controls are affected; if false then just the control is affected.</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ExcludeControlType(System.Type)">
+            <summary>
+            Manually excludes the specified <see cref="T:System.Windows.Forms.Control"/> type from all skinning
+            actions, all instances of the specified type will not be skinned.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            This method should be called before your application starts or in the
+            main forms constructor.
+            </remarks>
+            <param name="controlType">The control type</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ExcludeControlTypeName(System.String)">
+            <summary>
+            Manually excludes the specified <see cref="T:System.Windows.Forms.Control"/> type name from all skinning
+            actions, all instances of the specified type name will not be skinned.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            This method should be called before your application starts or in the
+            main forms constructor.
+            </remarks>
+            <param name="typeName">The control type</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RegisterCustomTextBoxType(System.Type)">
+            <summary>
+            Registers a custom <see cref="T:System.Windows.Forms.TextBox"/> contol for skinning, such as a 3rd 
+            party TextBox. This intended to be used for 3rd party TextBox controls only.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            The specified type can also be a derived TextBox control, this method should 
+            be called before your application starts or in the main forms constructor.
+            </remarks>
+            <param name="type">The control type</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.RegisterCustomScrollableControl(System.Type)">
+            <summary>
+            Registers a custom scrollable contol for skinning, such as a 3rd party grid or 
+            scrollable control. This intended to be used for 3rd party controls only.
+            <para>
+            This method can be called anywhere in your application.
+            </para>
+            </summary>
+            <remarks>
+            The specified type can also be a derived TextBox control, this method should 
+            be called before your application starts or in the main forms constructor.
+            </remarks>
+            <param name="type">The control type</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetSkinnedColor(System.Drawing.KnownColor)">
+            <summary>
+            Gets the skinned color from the specified <see cref="T:System.Drawing.KnownColor"/>
+            </summary>
+            <remarks>The color is assumed to be a system color index</remarks>
+            <param name="color"></param>
+            <returns>A Color value</returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetSystemColor(System.Drawing.KnownColor)">
+            <summary>
+            Gets the system color (unskinned) from the specified <see cref="T:System.Drawing.KnownColor"/>
+            </summary>
+            <remarks>The color is assumed to be a system color index</remarks>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.BeginUpdate">
+            <summary>
+            Maintains render performance whilst setting the VisualStyler properties,
+            and prevents any unnecessary skin painting until the <see cref="M:SkinSoft.VisualStyler.VisualStyler.EndUpdate"/> 
+            method is called.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.EndUpdate">
+            <summary>
+            Resumes skin rendering after painting is suspended by the <see cref="M:SkinSoft.VisualStyler.VisualStyler.BeginUpdate"/>
+            method.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ValidateLicense(System.Boolean)">
+            <summary>
+            Validates the license using the specified design mode
+            </summary>
+            <param name="designMode"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.Refresh">
+            <summary>
+            Refreshes the application skin using the current settings.
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ShowStyleBrowserDialog(System.String,System.String,System.String@)">
+            <summary>
+            Shows the visual style browser dialog, this dialog enables clients to browse, 
+            preview and select any skins you provide with your application.
+            </summary>
+            <param name="dialogTitle">The dialog caption text.</param>
+            <param name="filePath">The initial file path to search for styles.</param>
+            <param name="selectedFileName">The selected file name returned from the dialog.</param>
+            <returns> The DialogResult returned form the style browser dialog. </returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ShowStyleImportDialog(System.String,System.String,System.String@)">
+            <summary>
+            Shows the visual style import dialog, this dialog enables clients to import, 
+            preview and select new visual styles at runtime.
+            </summary>
+            <param name="dialogTitle">The dialog caption text.</param>
+            <param name="filePath">The file path where the imported style will be saved.</param>
+            <param name="selectedFileName">The selected file name of the imported style.</param>
+            <returns> The DialogResult returned form the style browser dialog. </returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.LoadVisualStyle(System.Reflection.Assembly,System.String)">
+            <summary>
+            Loads a new visual style from the specified <see cref="T:System.Reflection.Assembly"/> with the 
+            specified resource name.
+            </summary>
+            <remarks>
+            The resource name is the name of the VisualStyler skin file which is persisted in 
+            the source <see cref="T:System.Reflection.Assembly"/> as an embedded resource.
+            </remarks>
+            <example>
+            The following C# example loads the Visual Style: MySkin.vssf from the calling assembly.
+            <para></para>
+            <code>
+            visualStyler1.LoadVisualStyle(null,"MySkin.vssf");
+            </code>
+            </example>
+            <param name="assembly">The source Assembly where the resource is persisted, if this null is then the calling assembly is used.</param>
+            <param name="resourceName">The name of the resource.</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.LoadVisualStyle(System.String)">
+            <summary>
+            Loads a new visual style from the specified VisualStyler skin file name.
+            </summary>
+            <remarks>
+            The source file must be a valid VisualStyler skin file. The file is 
+            searched using the following search paths :-
+            <para></para>
+            The supplied file path. <para></para>
+            The application folder. <para></para>
+            The application skins folder. <para></para>
+            The design-time skins folder. <para></para>
+            </remarks>
+            <example>
+            The following example loads the visual style "LunarBlue.vssf" .<para></para>
+            <code>
+            visualStyler1.LoadVisualStyle("LunarBlue.vssf");
+            </code>
+            </example>
+            <param name="fileName">The source file.</param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.LoadVisualStyle(System.IO.Stream)">
+            <summary>
+            Loads a new visual style from the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <remarks>
+            The object persisted in the source stream must be a valid VisualStyler skin file.
+            </remarks>
+            <example>
+            The following example loads the visual style "LunarBlue.vssf" from the a resource embedded
+            in the current assembly. <para></para>
+            <code>
+            visualStyler1.LoadVisualStyle(Assembly.GetExectutingAssembly().GetManifestResourceStream("MyApp.Resources.LunarBlue.vssf"));
+            </code>
+            </example>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetFileStream(System.String)">
+            <summary>
+            Gets a stream for the specified file path
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetAssemblyResource(System.Reflection.Assembly,System.String)">
+            <summary>
+            Gets the specified skin resource from the calling assembly
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetAssemblyFile(System.Reflection.Assembly,System.String)">
+            <summary>
+            Gets the specified skin file from the calling assembly
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ReadAllBytes(System.String)">
+            <summary>
+            Reads all bytes from the specified file path
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.GetSkinsFolder">
+            <summary>
+            Gets the default skins folder
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.ApplyControlTags(System.Windows.Forms.Control,System.Object)">
+            <summary>
+            Applies the specified tag to the specified control and child controls
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.XRL(SkinSoft.VisualStyler.Licensing.VisualStylerLicense)">
+            <exclude/>
+            <summary>
+            Refreshes the internal license using the specified license
+            </summary>
+        </member>
+        <member name="M:SkinSoft.VisualStyler.VisualStyler.OnVisualStyleChanged(System.Object,System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:SkinSoft.VisualStyler.VisualStyler.VisualStyleChanged"/> event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:SkinSoft.VisualStyler.VisualStyler.VisualStyleChanged">
+            <summary>
+            Occurs when the current visual style has changed
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinEnabled">
+            <summary>
+            Gets a value indicating whether the application is currently skinned
+            </summary>
+            <remarks>
+            This method can be called anywhere in your application.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.License">
+            
+            <summary>
+            Gets or sets the component license, this method is not intended to be used by
+            client code.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.DefaultExcludeSkinTag">
+            <summary>
+            Specifies the default exclusion tag, <para></para>
+            The skin is automatically excluded from any control whose <see cref="P:System.Windows.Forms.Control.Tag"/> 
+            property matches this value, regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </summary>
+            <remarks>The default exclude tag is normally the string value "XC"</remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.DefaultIncludeSkinTag">
+            <summary>
+            Specifies a default include tag, <para></para> 
+            The skin is automatically applied to any 
+            control whose <see cref="P:System.Windows.Forms.Control.Tag"/> property matches this value, regardless 
+            of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </summary>
+            <remarks>The default include tag is normally the string value "IC"</remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.StyleName">
+            <summary>
+            Gets the current style name
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.HostForm">
+            <summary>
+            Sets the host form at design-time
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.VisualStyle">
+            <summary>
+            Gets or sets the visual style skin file, this is a design-time property and is
+            not intended to be used by client code.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinMode">
+            <summary>
+            Specifies how application forms and controls will be skinned. <para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.SkinMode.Manual"/> to manually skin forms and controls.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.SkinMode.Automatic"/> to automatically skin all application forms and controls.<para></para>
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.IsSkinEnabled">
+            <summary>
+            Gets a value indicating whether the application is currently skinned
+            </summary>
+            <remarks>
+            This method can be called anywhere in your application.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.TargetControls">
+            <summary>
+            Specifies which application controls will have the skin applied. <para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.TargetControls.None"/> to skin no application forms or controls,<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.TargetControls.Forms"/> to skin only application forms,<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.TargetControls.Controls"/> to skin only application controls,<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.TargetControls.FormsAndControls"/> to skin all application forms and controls,<para></para>
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.ToolStripStyle">
+            <summary>
+            Specifies what <see cref="T:System.Windows.Forms.ToolStrip"/> render style to use.
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.System"/> to render toolstrips with skinned elements.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.Professional"/> to render toolstrips using professional skinned colors.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.Mixed"/> to render toolstrips with a combination of system and professional styles.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeBlue"/> to render toolstrips using professional Office XP Blue colors.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeOlive"/> to render toolstrips using professional Office XP Olive colors.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeSilver"/> to render toolstrips using professional Office XP Silver colors.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeRoyale"/> to render toolstrips using professional Office XP Royale colors.<para></para>
+            Use <see cref="F:SkinSoft.VisualStyler.ToolStripRenderStyle.OfficeAuto"/> to render toolstrips using professional Office colors using the currently selected XP skin.<para></para>
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.ShadowStyle">
+            <summary>
+            Specifies the shadow style to apply to all forms.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.TextShadowVisible">
+            <summary>
+            Specifies whether to display any visual style text shadow.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.ShowMdiMenu">
+            <summary>
+            Determines whether to display the MDI menu in an MDI application.
+            </summary>
+            <remarks>
+            VisualStyler always draws the MDI menu on the MDI container form, unless the
+            application uses the <see cref="T:System.Windows.Forms.MenuStrip"/> menu provider. If your application
+            uses a 3rd party menu component, then set this property to false.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.DoubleBufferForms">
+            <summary>
+            Determines whether to double buffer all form controls.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.ShowFocusCues">
+            <summary>
+            Determines whether to display focus cues on applicable controls such as
+            <see cref="T:System.Windows.Forms.Button"/> and <see cref="T:System.Windows.Forms.CheckBox"/>
+            controls.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.HookSystemDrawing">
+            <summary>
+            Specifies whether to skin parts that are directly drawn by the OS platform.
+            </summary>
+            <remarks>
+            This is an advanced feature that enables VisualStyler to skin custom controls and drawing.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.HookSystemColors">
+            <summary>
+            Specifies whether to override system colors and replace them with the skin palette.
+            </summary>
+            <remarks>
+            This is an advanced feature that enables VisualStyler to override the <see cref="T:System.Drawing.SystemColors"/>
+            and replace them with the skinned palette.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.HookVisualStyles">
+            <summary>
+            Specifies whether to override system visual styles and replace them with skinned styles.
+            </summary>
+            <remarks>
+            This is an advanced feature that enables VisualStyler to override visual styles that are
+            normally drawn by uxtheme on themed platforms such as Windows XP and Windows Vista.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.UseSystemFonts">
+            <summary>
+            Specifies whether to use system fonts in place of the skin fonts.
+            </summary>
+            <remarks>If this setting is enabled then the visual style will be rendered using
+            the current system fonts and not the fonts specified in the skin file. </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.CustomBackgroundPaint">
+            <summary>
+            Specifies whether to enable custom background painting, this only applies to the client region 
+            of the <see cref="T:System.Windows.Forms.Form"/>, <see cref="T:System.Windows.Forms.Panel"/>,  
+            and <see cref="T:System.Windows.Forms.UserControl"/> controls.
+            </summary>
+            <remarks>
+            Normally VisualStyler overrides all background painting, when this option is enabled you can override a controls
+            <see cref="M:System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)"/> and <see cref="M:System.Windows.Forms.Control.OnPaintBackground(System.Windows.Forms.PaintEventArgs)"/> 
+            methods in order to owner draw your own custom graphics.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.EnableAeroOptimizations">
+            <summary>
+            Specifies whether to enable optimized drawing on platforms where the Aero
+            theme is enabled, such as Windows Vista and Windows 7, enabling this feature 
+            will significantly improve the rendering performance of all <see cref="T:System.Windows.Forms.Form"/>
+            regions
+            </summary>
+            <remarks>
+            This setting only affects top level Forms and dialogs.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.EnableAeroTransitions">
+            <summary>
+            Specifies whether to enable Aero transitions on platforms where the Aero
+            theme is enabled. Transitions apply to the Form animations during an Open,
+            Close, Minimize and Restore action.
+            </summary>
+            <remarks>
+            This setting has no effect if the system window animation setting is disabled on
+            the target machine.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.GlobalIncludeTag">
+            <summary>
+            Specifies a global include tag,<para></para>any <see cref="T:System.Windows.Forms.Control"/> or <see cref="T:System.Windows.Forms.Form"/>whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> value matches this string will automatically get skinned, 
+            regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </summary>
+            <remarks>
+            The default value is the string IC, any control or form whose <see cref="P:System.Windows.Forms.Control.Tag"/> 
+            property is set to this value will always be skinned.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.GlobalExcludeTag">
+            <summary>
+            Specifies a global tag,<para></para> any <see cref="T:System.Windows.Forms.Control"/> or <see cref="T:System.Windows.Forms.Form"/>whose 
+            <see cref="P:System.Windows.Forms.Control.Tag"/> value matches this string will automatically have the
+            skin removed, regardless of the <see cref="P:SkinSoft.VisualStyler.VisualStyler.TargetControls"/> setting.
+            </summary>
+            <remarks>
+            The default value is the string XC, any control or form whose <see cref="P:System.Windows.Forms.Control.Tag"/> 
+            property is set to this value will not be skinned.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinToggleButtons">
+            <summary>
+            Specifies whether to skin button style <see cref="T:System.Windows.Forms.CheckBox"/> and <see cref="T:System.Windows.Forms.RadioButton"/> controls.
+            </summary>
+            <remarks>
+            This setting only affects the <see cref="T:System.Windows.Forms.RadioButton"/> and <see cref="T:System.Windows.Forms.CheckBox"/> controls when
+            the <see cref="T:System.Windows.Forms.Appearance"/> property is set to <see cref="F:System.Windows.Forms.Appearance.Button"/>.
+            
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinFlatStyles">
+            <summary>
+            Specifies whether to skin flat styles on controls that support the 
+            <see cref="T:System.Windows.Forms.FlatStyle"/> property.
+            </summary>
+            <remarks>
+            Setting this to false will enable flat styles on the following controls :-
+            <see cref="T:System.Windows.Forms.Button"/>, <see cref="T:System.Windows.Forms.RadioButton"/>, <see cref="T:System.Windows.Forms.CheckBox"/> and
+            <see cref="T:System.Windows.Forms.ComboBox"/> controls.
+            </remarks>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinCommonDialogs">
+            <summary>
+            Specifies whether to skin the common dialog components, such as the <see cref="T:System.Windows.Forms.OpenFileDialog"/>, 
+            <see cref="T:System.Windows.Forms.SaveFileDialog"/>, <see cref="T:System.Windows.Forms.FontDialog"/> etc.
+            </summary>
+        </member>
+        <member name="P:SkinSoft.VisualStyler.VisualStyler.SkinSystemControls">
+            <summary>
+            Specifies whether to skin all native system controls and dialogs.
+            </summary>
+        </member>
+    </members>
+</doc>
