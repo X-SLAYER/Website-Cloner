@@ -1,6 +1,6 @@
 # Website Cloner
 
-its a desktop app that allow useres to download website files on computer
+its a desktop app that allow useres to download website files on computer ,
 it help to download a full frontend source code 
 html,css,js,images ...
  
@@ -8,9 +8,7 @@ html,css,js,images ...
 
 ## Screenshots
 
-
-![Downloading](https://i.imgur.com/d5FMmSN.png)
-
+![Downloading](https://i.imgur.com/yvwn7mt.png)
 
 
 - [Youtube Channel](https://www.youtube.com/c/XSLAYERTN)
