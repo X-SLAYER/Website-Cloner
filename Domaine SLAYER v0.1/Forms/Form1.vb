@@ -199,7 +199,12 @@ Public Class Form1
             End If
             If Determine(Name) Then
                 If Not Directory.Exists(Path) Then
-                    Directory.CreateDirectory(Path)
+                    Try
+                        Directory.CreateDirectory(Path)
+                        Path = Path.Substring(0, 5)
+                    Catch ex As Exception
+                        Directory.CreateDirectory(Path.Substring(0,5))
+                    End Try
                 End If
                 DownloadFile(I, New Uri(I.Text), Path, Name)
             Else

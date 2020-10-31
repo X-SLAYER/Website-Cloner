@@ -41,3 +41,6 @@ C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\obj
 C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\obj\Debug\Domaine SLAYER v0.1.xml
 C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\obj\Debug\Domaine SLAYER v0.1.pdb
 C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\obj\Debug\Domaine SLAYER v0.1.vbprojAssemblyReference.cache
+C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\bin\Debug\xNet.dll
+C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\bin\Debug\xNet.pdb
+C:\Users\ihebb\source\repos\Projects\Domaine SLAYER v0.1\Domaine SLAYER v0.1\bin\Debug\xNet.xml

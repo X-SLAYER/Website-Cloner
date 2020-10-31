@@ -62,9 +62,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="xNet, Version=3.3.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\My Source Code\xNet-master\bin\Debug\xNet.dll</HintPath>
+    <Reference Include="xNet">
+      <HintPath>..\..\..\..\..\OneDrive\Desktop\Checkers\au.match Accounts Checker By X-SLAYER\Checker By X-SLAYER\bin\Debug\xNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
