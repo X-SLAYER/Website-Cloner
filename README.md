@@ -12,4 +12,4 @@ html,css,js,images ...
 
 
 - [Youtube Channel](https://www.youtube.com/c/XSLAYERTN)
-- [Linkedin](https://i.imgur.com/yvwn7mt.png)
+- [Linkedin](https://www.linkedin.com/in/x-slayer/)
