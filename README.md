@@ -3,6 +3,8 @@
 its a desktop app that allow users to download website files on computer ,
 it help to download a full frontend source code 
 html,css,js,images ...
+
+Check this version that work on Linux [here](https://github.com/X-SLAYER/website-cloner-dart)
  
  # Show some ⭐ to the repo for support
 
